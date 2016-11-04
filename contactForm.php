@@ -1,6 +1,6 @@
 <?php 
   $error ="";
-  
+  $successMessage ="";
 
 	 if($_POST) { 
 
@@ -28,12 +28,25 @@
 		  	 $error ='<div class="alert alert-danger" role="alert"><strong>There were some errors in this form :<br></strong> '. $error .'</div>';
 		  }else {
 
+			  	$emailTo = "lokesh.jadhav10@gmail.com";
+				$subject = $_POST["subject"];
+				$body    =$_POST["content"];
+				$headers = "From : ".$_POST["email"];
+
+					if(mail($emailTo, $subject, $body, $headers)){
+
+						$successMessage .= '<div class="alert alert-success" role="alert"><strong>The email has succesfully send to :<br></strong> '.$_POST["email"] .'</div>';
+					}
+					else {
+						 $error ='<div class="alert alert-danger" role="alert"><strong>There were some errors in this form :<br></strong> '. $error .'</div>';
+					}
 
 
 
 
 
-		  	
+
+
 		  }
 	   
 	 }
@@ -59,7 +72,7 @@
 		 <div class="container">
 
 			  <h1>Get in Touch</h1>
-			  <div class="error" ><?php echo $error; ?></div>
+			  <div class="error" ><?php echo $error.$successMessage; ?></div>
 
 		  <div class="form-group">
 		    <label for="exampleInputEmail1">Email address</label>
@@ -90,7 +103,7 @@
  	<script type="text/javascript">
 
 	 		 $("form").submit(function(e){
-       				 e.preventDefault();
+       				// e.preventDefault(); This methode has a problem of double click hence use return true and return false
 
        				var error="";
 
@@ -111,8 +124,10 @@
 
 			 		if(error !=""){
 			 			$(".error").html('<div class="alert alert-danger" role="alert"><strong>There were some errors in this form :<br></strong> '+ error +'</div>' );
+			 			return false;
 			 		}else{
-			 			 $("form").unbind("submit").submit();
+			 			// $("form").unbind("submit").submit();
+			 			return true;
 			 		}
 
 
