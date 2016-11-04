@@ -1,5 +1,42 @@
 <?php 
+  $error ="";
+  
 
+	 if($_POST) { 
+
+		  if(!$_POST["email"]){
+
+		  	$error .= "An email address is empty<br>";
+
+		  }
+		  if(!$_POST["subject"]){
+
+		  	$error .= "The subject is empty<br>";
+		  	
+		  }
+
+		  if(!$_POST["content"]){
+
+		  	$error .= "your content is empty<br>";
+		  	
+		  }
+		  if ($_POST["email"] && filter_var($_POST["email"],FILTER_VALIDATE_EMAIL) === false){
+		        $error .="Invalid email address";
+		  } 
+		  if ($error !=""){
+
+		  	 $error ='<div class="alert alert-danger" role="alert"><strong>There were some errors in this form :<br></strong> '. $error .'</div>';
+		  }else {
+
+
+
+
+
+
+		  	
+		  }
+	   
+	 }
 
 
 ?>
@@ -18,25 +55,25 @@
   <body>
     
 
-<form>
+<form method="POST">
 		 <div class="container">
 
 			  <h1>Get in Touch</h1>
-			  <div class="error" ></div>
+			  <div class="error" ><?php echo $error; ?></div>
 
 		  <div class="form-group">
 		    <label for="exampleInputEmail1">Email address</label>
-		    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter youe email address">
+		    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter youe email address" name="email">
 		    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 		  </div>
 		  <div class="form-group">
 		    <label for="subject">Subject</label>
-		    <input type="text" class="form-control" id="subject" >
+		    <input type="text" class="form-control" id="subject" name="subject">
 		  </div>
 		  
 		  <div class="form-group">
 		    <label for="content">what would you like to ask us? </label>
-		    <textarea class="form-control" id="content" rows="3"></textarea>
+		    <textarea class="form-control" id="content" rows="3" name="content"></textarea>
 		  </div>
 
 		  <button type="submit" id="submit" class="btn btn-primary">Submit</button>
@@ -50,7 +87,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
 
-    <script type="text/javascript">
+ 	<script type="text/javascript">
 
 	 		 $("form").submit(function(e){
        				 e.preventDefault();
@@ -85,7 +122,6 @@
 	 		
 
 	 	</script>
-
 
 
   </body>
