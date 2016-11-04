@@ -1,6 +1,6 @@
 <?php 
 
-echo "welcome ";
+
 
 ?>
 
@@ -16,7 +16,32 @@ echo "welcome ";
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
   </head>
   <body>
-    <h1>Hello, world!</h1>
+    
+
+		    <form>
+	 <div class="container">
+
+			  <h1>Get in Touch</h1>
+		  <div class="form-group">
+		    <label for="exampleInputEmail1">Email address</label>
+		    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter youe email address">
+		    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+		  </div>
+		  <div class="form-group">
+		    <label for="subject">Subject</label>
+		    <input type="text" class="form-control" id="subject" >
+		  </div>
+		  
+		  <div class="form-group">
+		    <label for="content">what would you like to ask us? </label>
+		    <textarea class="form-control" id="content" rows="3"></textarea>
+		  </div>
+
+		  
+		  <button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+
+	 </div>
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
