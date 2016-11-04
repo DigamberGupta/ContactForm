@@ -35,10 +35,10 @@
 
 					if(mail($emailTo, $subject, $body, $headers)){
 
-						$successMessage .= '<div class="alert alert-success" role="alert"><strong>The email has succesfully send to :<br></strong> '.$_POST["email"] .'</div>';
+						$successMessage .= '<div class="alert alert-success" role="alert"><strong>The email has succesfully send to :</strong> '.$_POST["email"] .'we will get back to you ASAP!</div>';
 					}
 					else {
-						 $error ='<div class="alert alert-danger" role="alert"><strong>There were some errors in this form :<br></strong> '. $error .'</div>';
+						 $error ='<div class="alert alert-danger" role="alert"><strong>There Your message was not send, please try again later:<br></strong> </div>';
 					}
 
 
